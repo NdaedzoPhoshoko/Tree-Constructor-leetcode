@@ -1,23 +1,66 @@
-## Problem description
-The function TreeConstructor(strArr) takes the array of strings stored in strArr, which will contain pairs of integers in the format: (i1,i2), where i1 represents a child node in a tree and integer i2 signifies that it is the parent of i1.
+# Tree Constructor
 
-If strArr is ["(1,2)", "(2,4)", "(7,2)"]
-we get the following tree    4
-                            /
-                           2
-                          / \
-                         1   7
-which we can see forms a proper binary tree. This program should, in this case, return the string "true" bacuase a valid binary tree can be formed. If a proper binary tree cannot formed with the integers pairs, then return the string "false". All of the integers within the tree will be unique, which means there can only be one node in the tree with the given integer value.
+## Problem Description
+The function `TreeConstructor(strArr)` takes an array of strings stored in `strArr`, which contains pairs of integers in the format: `(i1,i2)`. Here, `i1` represents a child node in a tree, and `i2` signifies that it is the parent of `i1`.
 
-## Example
-Input: new String[]{"(1,2)", "(2,4)", "(7,2)", "(9,5)"}
-Output: true
+For example, if `strArr` is:
 
-Input: new String[]{"(1,2)", "(3,2)", "(2,12)", "(5,2)"}
-Output: false
+```plaintext
+["(1,2)", "(2,4)", "(7,2)"]
+```
 
-## Problem approach
+the resulting tree is:
 
-Recall the rules of a binary tree, then define this rules in the program, this way we will be conceptually building a proper binary tree. The rule is that each node contains one element and and it can only have less than or equal to two children.
+```
+    4
+   /
+  2
+ / \
+1   7
+```
 
-Store all children nodes that exist from the tree to an array child_nodes, and store all parent nodes to an array par_nodes. Then check if integers in child nodes are unique, and those of parent nodes are not occuring more than twice. Hence a valid binary tree is defined according to these rules.
+This forms a proper binary tree. In this case, the program should return the string `"true"` because a valid binary tree can be formed. If a proper binary tree cannot be formed with the integer pairs, the function should return the string `"false"`. All integers within the tree are unique, meaning there can only be one node in the tree with a given integer value.
+
+## Examples
+
+### Example 1
+**Input:**
+
+```plaintext
+["(1,2)", "(2,4)", "(7,2)", "(9,5)"]
+```
+
+**Output:**
+
+```plaintext
+true
+```
+
+### Example 2
+**Input:**
+
+```plaintext
+["(1,2)", "(3,2)", "(2,12)", "(5,2)"]
+```
+
+**Output:**
+
+```plaintext
+false
+```
+
+## Problem Approach
+To solve the problem, recall the rules of a binary tree and implement these rules programmatically. The key rule is that each node can have at most two children. Following this, the solution can be structured as follows:
+
+1. **Initialize Data Structures**:
+   - Store all child nodes from the tree in an array `child_nodes`.
+   - Store all parent nodes in an array `par_nodes`.
+
+2. **Validate Tree Rules**:
+   - Ensure that each integer in `child_nodes` is unique.
+   - Ensure that integers in `par_nodes` do not occur more than twice.
+
+3. **Determine Validity**:
+   - If the conditions above are satisfied, the program should return `"true"`.
+   - Otherwise, it should return `"false"`.
+
